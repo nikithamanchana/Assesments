@@ -1,0 +1,16 @@
+public class Bank{
+	int getBalance() {
+		return 0;
+	}
+
+public static void main(String[] args) {
+	Bank b1=new Bank();
+	BankA b2=new BankA();
+	BankB b3=new BankB();
+	BankC b4=new BankC();
+	System.out.println("Deposits:"+b1.getBalance());
+	System.out.println("Deposits in A:"+b2.getBalance());
+	System.out.println("Deposits in B:"+b3.getBalance());
+	System.out.println("Deposits in C:"+b4.getBalance());
+}
+}
