@@ -1,0 +1,27 @@
+import java.io.*;  
+public class Prgm2  
+{  
+public static void main(String args[])  
+{  
+try  
+{  
+File f1=new File("D:\\nik.txt");    
+FileReader fred =new FileReader(f1);    
+BufferedReader buff=new BufferedReader(fred);  
+StringBuffer strbuff=new StringBuffer();    
+String line;  
+while((line=buff.readLine())!=null)  
+{  
+strbuff.append(line);     
+strbuff.append("\n");     
+}  
+fred.close();    
+System.out.println(" File consits of : ");  
+System.out.println(strbuff.toString());   
+}  
+catch(IOException e)  
+{  
+e.printStackTrace();  
+}  
+}  
+}  

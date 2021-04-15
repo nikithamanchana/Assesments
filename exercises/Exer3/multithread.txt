@@ -1,0 +1,60 @@
+class MultiThread
+{
+   public static void main (String [] args)
+   {
+      Trans t = new Trans ();
+      BankThread bt1 = new BankThread (t, "Deposit Thread");
+      BankThread bt2 = new BankThread (t, "Withdrawal Thread");
+      bt1.start ();
+      bt2.start ();
+   }
+}
+class Trans
+{
+   public static String transName;
+   public static double amount;
+}
+class BankThread extends Thread
+{
+   private Trans t;
+   BankThread (Trans t, String name)
+   {
+      super (name); 
+      this.t = t; 
+   }
+   public void run ()
+   {
+      for (int i = 0; i < 5; i++)
+      {
+           if (getName ().equals ("Deposit Thread"))
+           {
+              
+               t.transName = "Deposit";
+               try
+               {
+                  Thread.sleep (1000);
+               }
+               catch (InterruptedException e)
+               {
+               }
+               t.amount = 1800.0;
+               System.out.println (t.transName + " " + t.amount);
+               
+           }
+           else
+           {
+               t.transName = "Withdrawal";
+               
+               try
+               {
+                  Thread.sleep (1000);
+               }
+               catch (InterruptedException e)
+               {
+               }
+               t.amount =800.0;
+               System.out.println (t.transName + " " + t.amount);
+           }
+      }
+   }
+}

@@ -1,0 +1,16 @@
+import java.io.*;
+public class Prgm3 {
+	
+		public static void main(String[] args) {
+			try {
+			File f = new File("D:\\nik.txt");
+			FileWriter fw = new FileWriter(f, true);
+			fw.write("hello");
+			fw.close();
+		}
+			catch(IOException e) {
+				e.printStackTrace();
+			}
+	}
+	}
+
