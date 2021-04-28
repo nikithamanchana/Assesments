@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Card Validation</title>
+<script type="text/javascript">
+
+function formValidation()
+{
+var cno = document.valid.cardnumber;
+var pwd=document.valid.pwd;
+if(cnovalid(cno,12,16))
+{
+	if (ValidateEmail()){
+		if(validatedate()){
+			if(pwdvalid(pwd,7,11)){
+				
+			}
+		}
+	}
+}
+function pwdvalid(pwd,x,y)
+{
+var pwd_len = pwd.value.length;
+if (pwd_len == 0 ||pwd_len >= y || pwd_len < x)
+{
+alert("Password should not be empty / length be between "+x+" to "+y);
+pwd.focus();
+return false;
+}
+return true;
+}
+function cnovalid(cno,x,y)
+{
+var cno_len = cno.value.length;
+if (cno_len == 0 ||cno_len >= y || cno_len < x)
+{
+alert("Card number should not be empty / length be between "+x+" to "+y);
+cno.focus();
+return false;
+}
+return true;
+}
+
+return false;
+}
+function validatedate()
+{ var y = document.getByElementId("expiration").value;
+var d = new Date(y);
+Date.prototype.isValid = function () {
+    return this.getTime() === this.getTime();
+    
+  if(d.isValid())
+	  {
+	  
+	  }
+  else
+	  alert("wrong date");
+}
+}
+function ValidateEmail() 
+{ var x = document.getElementById("email").value;
+ if (/^[a-zA-Z0-9.!#$%&'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$/.test(x))
+  {
+    return (true);
+  }
+    alert("You have entered an invalid email address!");
+    return (false);
+}
+</script>
+<body>
+<form name="valid" onSubmit="return formValidation();" action="success.html">
+<section>
+<h2>Contact Information</h2>
+<p>
+<label for="name">
+  <span>
+  Salutation:
+  </span>
+</label><br>
+<input type="radio" id="male" name="gender" value="male">
+<label for="mr">Mr.</label><br>
+<input type="radio" id="female" name="gender" value="female">
+<label for="ms">Ms.</label><br>
+Full Name:<input type = "text" id = "name" name = "name" required><br><br>
+Email:<input type="email" id = "email" name = "email" required><br><br>
+Password:<input type = "password"  id ="pass" name="pwd" required><br>
+</section>
+<section>
+    <h2>Payment information</h2>
+    <p>
+      <label for="card">
+        <span>Card type:</span>
+      </label>
+      <select id="card" name="usercard">
+        <option value="visa">Visa</option>
+        <option value="mc">Mastercard</option>
+        <option value="amex">American Express</option>
+      </select>
+    </p>
+    <p>
+      <label for="number">
+        <span>Card number:</span>
+        <strong><abbr title="required">*</abbr></strong>
+      </label>
+      <input type="number" id="number" name="cardnumber" required >
+    </p>
+    <p>
+      <label for="date">
+        <span>Expiration date:</span>
+        <strong><abbr title="required">*</abbr></strong>
+        <em>formatted as mm/dd/yyyy</em>
+      </label>
+      <input type="date" id="date" name="expiration" required>
+    </p>
+  </section>
+  <section>
+   <p> <button type="submit" >Validate the payment</button> </p>
+  </section>
+  </form>
+</body>
+</html>
