@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+<bean id="cohort" class="com.example.demo.Cohorts">
+<property name="cohortid" value="1"></property>
+<property name="cohortname" value="nikki"></property>
+<property name="emailid" value="nikki@yahoo.com"></property>
+<property name="contactno" value="9121936821"></property>
+</bean>
+<bean id="dxc" class="com.example.demo.DXC">
+<property name="EmployeeId" value="12"></property>
+<property name="EmploymentType" value="Intern"></property>
+<property name="year" value="2021"></property>
+  <property name="cohort">
+            <ref bean="cohort" />
+        </property>          
+</bean>
+</beans>
